@@ -121,11 +121,6 @@
                             <i class="bi bi-arrow-left-right me-1"></i> Peminjaman
                         </a>
                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('denda') ?>">
-                            <i class="bi bi-arrow-left-right me-1"></i> Denda
-                        </a>
-                    </li>
                 </ul>
                 
                 <div class="d-flex align-items-center border-start border-secondary ps-lg-4 ms-lg-2">
