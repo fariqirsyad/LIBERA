@@ -53,5 +53,11 @@ $routes->get('peminjaman/tambah/(:num)', 'Peminjaman::tambah/$1');
 $routes->get('peminjaman/konfirmasi/(:num)', 'Peminjaman::konfirmasi/$1');
 $routes->get('peminjaman/kembalikan/(:num)', 'Peminjaman::kembalikan/$1');
 $routes->get('peminjaman/hapus/(:num)', 'Peminjaman::hapus/$1');
+$routes->get('peminjaman/selesaikan/(:num)', 'Peminjaman::selesaikan/$1');
 
-
+// Backup
+$routes->get('/backup', 'Backup::index');
+$routes->get('/restore', 'Restore::index');
+$routes->post('/restore/auth', 'Restore::auth');
+$routes->get('/restore/form', 'Restore::form');
+$routes->post('/restore/process', 'Restore::process');

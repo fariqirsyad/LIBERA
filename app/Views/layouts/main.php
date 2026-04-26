@@ -121,6 +121,11 @@
                             <i class="bi bi-arrow-left-right me-1"></i> Peminjaman
                         </a>
                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="<?= base_url('denda') ?>">
+                            <i class="bi bi-arrow-left-right me-1"></i> Denda
+                        </a>
+                    </li>
                 </ul>
                 
                 <div class="d-flex align-items-center border-start border-secondary ps-lg-4 ms-lg-2">
@@ -147,6 +152,9 @@
                                 <a class="dropdown-item py-2 text-danger" href="<?= base_url('logout') ?>">
                                     <i class="bi bi-box-arrow-right me-2"></i> Log Out
                                 </a>
+                                <?php if (session()->get('role') == 'admin') : ?>
+<a href="<?= base_url('/backup') ?>" class="btn btn-success">Backup Database</a>
+<?php endif; ?>
                             </li>
                         </ul>
                     </div>
