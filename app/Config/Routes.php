@@ -61,3 +61,16 @@ $routes->get('/restore', 'Restore::index');
 $routes->post('/restore/auth', 'Restore::auth');
 $routes->get('/restore/form', 'Restore::form');
 $routes->post('/restore/process', 'Restore::process');
+
+// --- Group Routes untuk Denda ---
+$routes->group('denda', function($routes) {
+    
+    // Route untuk Anggota (Melihat denda sendiri dan bayar)
+    $routes->get('saya', 'Denda::index'); // Menampilkan denda berdasarkan session id_user
+    $routes->post('bayar/(:num)', 'Denda::bayar/$1'); // Proses upload bukti pembayaran
+
+    // Route untuk Admin/Petugas (Kelola dan Verifikasi)
+    $routes->get('kelola', 'Denda::index'); // Menampilkan semua daftar denda
+    $routes->get('verifikasi/(:num)/(:any)', 'Denda::verifikasi/$1/$2'); // Update status (lunas/ditolak)
+    
+});

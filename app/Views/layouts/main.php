@@ -121,6 +121,20 @@
                             <i class="bi bi-arrow-left-right me-1"></i> Peminjaman
                         </a>
                     </li>
+                    <?php if (session()->get('role') == 'admin' || session()->get('role') == 'petugas') : ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= base_url('denda/kelola'); ?>">
+                            <i class="bi bi-cash-stack"></i> Verifikasi Denda
+                        </a>
+                    </li>
+                    <?php else : ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= base_url('denda/saya'); ?>">
+                                <i class="bi bi-cash-stack"></i> Denda Saya
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                    
                 </ul>
                 
                 <div class="d-flex align-items-center border-start border-secondary ps-lg-4 ms-lg-2">

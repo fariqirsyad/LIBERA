@@ -11,11 +11,13 @@ class Peminjaman extends BaseController
 {
     protected $pinjamModel;
     protected $bukuModel;
+    protected $dendaModel;
 
     public function __construct()
     {
         $this->pinjamModel = new PeminjamanModel();
         $this->bukuModel = new BukuModel();
+        $this->dendaModel = new DendaModel();
     }
 
     public function index()
@@ -145,7 +147,7 @@ public function selesaikan($id)
                 'tgl_pinjam'  => date('Y-m-d'),
                 'tgl_kembali' => date('Y-m-d', strtotime('-2 days')),
                 'status'      => 'diajukan',
-                'denda'       => 5000
+                'denda'       => 0
             ]);
 
             $this->bukuModel->update($id_buku, ['stok' => $buku['stok'] - 1]);
