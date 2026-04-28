@@ -39,7 +39,7 @@ CREATE TABLE `buku` (
 
 LOCK TABLES `buku` WRITE;
 /*!40000 ALTER TABLE `buku` DISABLE KEYS */;
-INSERT INTO `buku` VALUES (8,'Angin Berhembus','Cahaya Dewi',10,5000,'1776657694_d79248c7d5e3ae0a9535.webp'),(9,'kala Itu Langit Bisu','Kim Chun Hei',10,5000,'1776657703_579aee34159c732ece32.webp'),(10,'Surat untuk Senja','Soo Jin Ae',10,5000,'1776657709_b17d0074dd0e6391a2f6.webp'),(11,'perahu Tanpa Narkoba','Juliana Silva',10,5000,'1776657718_8beac84aceec17a6a59c.webp'),(12,'Haunted House','Ken Adams',10,5000,'1776661468_db64e2f82d10323e0a57.jpg'),(13,'Suara Misterius Dirumah Tua','Adeline Palmerston',10,5000,'1776708333_6485fc6c44742afcf68c.webp'),(14,'Apa Adanya','Chandra Barkah',10,5000,'1776712145_c2b24fb282432f9f3ed6.jpg'),(15,'Jejak Kepribadian','Cahaya Dewi',10,5000,'1776712223_ccd090372ff0c59920a7.webp'),(16,'Free Fire ','Rianngraha',10,5000,'1776712467_6a35d0643b655ed13dd3.png'),(17,'MEOW','Sam Austen',10,5000,'1776712629_26b99d237234313a8a75.jpg'),(18,'Interaksi Antar Galaksi Yang Tak Dikenal','Samira Hadid',10,5000,'1776876059_2bc6945c7ce999348922.webp'),(20,'Menanti Restu Langit','Makhasin',10,5000,'1776876375_8f0eabd58aa7eb73a382.jpg');
+INSERT INTO `buku` VALUES (8,'Angin Berhembus','Cahaya Dewi',9,5000,'1776657694_d79248c7d5e3ae0a9535.webp'),(9,'kala Itu Langit Bisu','Kim Chun Hei',9,5000,'1776657703_579aee34159c732ece32.webp'),(10,'Surat untuk Senja','Soo Jin Ae',8,5000,'1776657709_b17d0074dd0e6391a2f6.webp'),(11,'perahu Tanpa Narkoba','Juliana Silva',9,5000,'1776657718_8beac84aceec17a6a59c.webp'),(12,'Haunted House','Ken Adams',10,5000,'1776661468_db64e2f82d10323e0a57.jpg'),(13,'Suara Misterius Dirumah Tua','Adeline Palmerston',10,5000,'1776708333_6485fc6c44742afcf68c.webp'),(14,'Apa Adanya','Chandra Barkah',10,5000,'1776712145_c2b24fb282432f9f3ed6.jpg'),(15,'Jejak Kepribadian','Cahaya Dewi',10,5000,'1776712223_ccd090372ff0c59920a7.webp'),(16,'Free Fire ','Rianngraha',10,5000,'1776712467_6a35d0643b655ed13dd3.png'),(17,'MEOW','Sam Austen',10,5000,'1776712629_26b99d237234313a8a75.jpg'),(18,'Interaksi Antar Galaksi Yang Tak Dikenal','Samira Hadid',10,5000,'1776876059_2bc6945c7ce999348922.webp'),(20,'Menanti Restu Langit','Makhasin',10,5000,'1776876375_8f0eabd58aa7eb73a382.jpg');
 /*!40000 ALTER TABLE `buku` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,7 +62,7 @@ CREATE TABLE `denda` (
   PRIMARY KEY (`id_denda`),
   KEY `fk_denda_peminjaman` (`id_peminjaman`),
   CONSTRAINT `fk_denda_peminjaman` FOREIGN KEY (`id_peminjaman`) REFERENCES `peminjaman` (`id_peminjaman`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,6 +71,7 @@ CREATE TABLE `denda` (
 
 LOCK TABLES `denda` WRITE;
 /*!40000 ALTER TABLE `denda` DISABLE KEYS */;
+INSERT INTO `denda` VALUES (1,51,10000,'Transfer Bank','menunggu_verifikasi','1777361069_b3f7fd595a3f0b91c70a.jpg','2026-04-28 07:00:55','2026-04-28 07:24:29'),(2,52,10000,NULL,'belum_bayar',NULL,'2026-04-28 07:30:43','2026-04-28 07:30:43');
 /*!40000 ALTER TABLE `denda` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -91,7 +92,7 @@ CREATE TABLE `peminjaman` (
   `denda` int(11) NOT NULL DEFAULT 0,
   `status` enum('dipinjam','diajukan','kembali') NOT NULL DEFAULT 'dipinjam',
   PRIMARY KEY (`id_peminjaman`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,7 +101,7 @@ CREATE TABLE `peminjaman` (
 
 LOCK TABLES `peminjaman` WRITE;
 /*!40000 ALTER TABLE `peminjaman` DISABLE KEYS */;
-INSERT INTO `peminjaman` VALUES (10,2,8,'2026-04-20','2026-04-23','2026-04-20',0,'kembali'),(11,2,10,'2026-04-20','2026-04-23','2026-04-20',0,'kembali'),(12,4,12,'2026-04-20','2026-04-21','2026-04-20',0,'kembali'),(14,4,13,'2026-04-20','2026-04-21','2026-04-20',0,'kembali'),(15,5,11,'2026-04-20','2026-04-21','2026-04-25',20000,'kembali'),(16,2,9,'2026-04-21','2026-04-22','2026-04-21',0,'kembali'),(17,4,14,'2026-04-21','2026-04-20','2026-04-21',5000,'kembali'),(26,NULL,9,'2026-04-22','2026-04-25',NULL,0,'dipinjam'),(27,NULL,10,'2026-04-22','2026-04-25',NULL,0,'dipinjam'),(28,5,10,'2026-04-22','2026-04-20','2026-04-22',10000,'kembali'),(29,NULL,9,'2026-04-23','2026-04-26',NULL,0,'dipinjam'),(30,5,8,'2026-04-23','2026-04-25','2026-04-23',0,'kembali'),(32,2,9,'2026-04-25','2026-04-23','2026-04-25',0,'kembali'),(33,2,8,'2026-04-25','2026-04-23','2026-04-25',0,'kembali'),(35,5,9,'2026-04-25','2026-04-23','2026-04-25',10000,'kembali'),(36,5,10,'2026-04-25','2026-04-23','2026-04-25',10000,'kembali'),(37,5,8,'2026-04-25','2026-04-23','2026-04-25',10000,'kembali'),(38,5,10,'2026-04-25','2026-04-23','2026-04-25',10000,'kembali'),(39,5,11,'2026-04-25','2026-04-23','2026-04-25',10000,'kembali'),(40,5,12,'2026-04-25','2026-04-23','2026-04-25',10000,'kembali'),(41,5,13,'2026-04-25','2026-04-23','2026-04-25',10000,'kembali'),(42,5,8,'2026-04-25','2026-04-23','2026-04-25',10000,'kembali'),(46,2,8,'2026-04-27','2026-04-29','2026-04-27',0,'kembali'),(47,7,16,'2026-04-27','2026-04-29','2026-04-27',0,'kembali');
+INSERT INTO `peminjaman` VALUES (10,2,8,'2026-04-20','2026-04-23','2026-04-20',0,'kembali'),(11,2,10,'2026-04-20','2026-04-23','2026-04-20',0,'kembali'),(12,4,12,'2026-04-20','2026-04-21','2026-04-20',0,'kembali'),(14,4,13,'2026-04-20','2026-04-21','2026-04-20',0,'kembali'),(15,5,11,'2026-04-20','2026-04-21','2026-04-25',20000,'kembali'),(16,2,9,'2026-04-21','2026-04-22','2026-04-21',0,'kembali'),(17,4,14,'2026-04-21','2026-04-20','2026-04-21',5000,'kembali'),(26,NULL,9,'2026-04-22','2026-04-25',NULL,0,'dipinjam'),(27,NULL,10,'2026-04-22','2026-04-25',NULL,0,'dipinjam'),(28,5,10,'2026-04-22','2026-04-20','2026-04-22',10000,'kembali'),(29,NULL,9,'2026-04-23','2026-04-26',NULL,0,'dipinjam'),(30,5,8,'2026-04-23','2026-04-25','2026-04-23',0,'kembali'),(32,2,9,'2026-04-25','2026-04-23','2026-04-25',0,'kembali'),(33,2,8,'2026-04-25','2026-04-23','2026-04-25',0,'kembali'),(35,5,9,'2026-04-25','2026-04-23','2026-04-25',10000,'kembali'),(36,5,10,'2026-04-25','2026-04-23','2026-04-25',10000,'kembali'),(37,5,8,'2026-04-25','2026-04-23','2026-04-25',10000,'kembali'),(38,5,10,'2026-04-25','2026-04-23','2026-04-25',10000,'kembali'),(39,5,11,'2026-04-25','2026-04-23','2026-04-25',10000,'kembali'),(40,5,12,'2026-04-25','2026-04-23','2026-04-25',10000,'kembali'),(41,5,13,'2026-04-25','2026-04-23','2026-04-25',10000,'kembali'),(42,5,8,'2026-04-25','2026-04-23','2026-04-25',10000,'kembali'),(46,2,8,'2026-04-27','2026-04-29','2026-04-27',0,'kembali'),(47,7,16,'2026-04-27','2026-04-29','2026-04-27',0,'kembali'),(48,2,8,'2026-04-28','2026-04-30','2026-04-28',0,'kembali'),(49,2,9,'2026-04-28','2026-04-26','2026-04-28',10000,'kembali'),(50,2,10,'2026-04-28','2026-04-26','2026-04-28',10000,'kembali'),(51,2,11,'2026-04-28','2026-04-26','2026-04-28',10000,'kembali'),(52,2,10,'2026-04-28','2026-04-26','2026-04-28',10000,'kembali');
 /*!40000 ALTER TABLE `peminjaman` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,4 +145,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-04-27 20:04:13
+-- Dump completed on 2026-04-28 15:22:00

@@ -145,7 +145,7 @@ public function selesaikan($id)
                 'id_user'     => session()->get('id_user') ?? session()->get('id'), 
                 'id_buku'     => $id_buku,
                 'tgl_pinjam'  => date('Y-m-d'),
-                'tgl_kembali' => date('Y-m-d', strtotime('-2 days')),
+                'tgl_kembali' => date('Y-m-d', strtotime('+2 days')),
                 'status'      => 'diajukan',
                 'denda'       => 0
             ]);
