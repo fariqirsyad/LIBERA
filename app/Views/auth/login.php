@@ -3,11 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>LIBERA</title>
 
     <!-- Bootstrap CSS Lokal -->
     <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/bootstrap-icons-1.13.1/bootstrap-icons.css') ?>" rel="stylesheet">
+    <link rel="icon" href="<?= base_url('img/Screenshot_2026-04-28_150540-removebg-preview.png') ?>" rel="stylesheet">
 </head>
 
 <body class="bg-light">
